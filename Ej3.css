@@ -316,7 +316,8 @@ body {
   border-color: gold;
   border-radius: 1rem;
   background: rgb(220, 220, 220);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  text-align: center;
 }
 
 .winner {

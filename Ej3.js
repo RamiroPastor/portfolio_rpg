@@ -324,11 +324,13 @@ function displayGameResult(round, vit1, vit2, p1, p2) {
   const loser = vit1 > 0 ? 2 : 1;
   const winnerRace = winner === 1 ? p1 : p2;
   const loserRace = loser === 1 ? p1 : p2;
+  const winnerVit = winner === 1 ? vit1 : vit2
+  const loserVit  = loser === 1 ? vit1 : vit2
 
   gameResult$$.innerHTML =
     `<h2>Resultado</h2>
-     <p class='winner'>Ganador: J${winner} (${winnerRace})</p>
-     <p class='loser'>Perdedor: J${loser} (${loserRace})</p>
+     <p class='winner'>Ganador: J${winner} <br/> (${winnerVit}vit, ${winnerRace})</p>
+     <p class='loser'>Perdedor: J${loser} <br/> (${loserVit}vit, ${loserRace})</p>
      <p>Rondas: ${round - 1}</p>
     `
 
