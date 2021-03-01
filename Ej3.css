@@ -1,0 +1,330 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  font-size: 1.5rem;
+  font-family: "Varela Round", sans-serif;
+  color: rgb(35, 35, 35);
+  background: rgb(35, 25, 25);
+}
+
+.displayNone {
+  display: none !important;
+}
+
+.hidden {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.rowReverse {
+  flex-direction: row-reverse;
+}
+
+.player1 {
+  border-color: cyan;
+}
+
+.player1 h2,
+.player1 h4 {
+  color: blue;
+  text-shadow: 1px 0 cyan, -1px 0 cyan, 0 1px cyan, 0 -1px cyan;
+}
+
+.player2 {
+  border-color: magenta;
+}
+
+.player2 h2,
+.player2 h4 {
+  color: indigo;
+  text-shadow: 1px 0 magenta, -1px 0 magenta, 0 1px magenta, 0 -1px magenta;
+}
+
+/* ---------------------------------------------------------- */
+
+.rollingDice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: black;
+}
+
+/* ---------------------------------------------------------- */
+
+.logo {
+  margin-bottom: 1rem;
+}
+
+.champList {
+  display: flex;
+  margin-bottom: 8rem;
+}
+
+.champList div {
+  display: flex;
+  flex-direction: column;
+  width: 23rem;
+  margin: 0 2rem;
+  padding: 1.8rem;
+  border: 2px solid maroon;
+  border-radius: 10px;
+  background: linear-gradient(rgb(200, 200, 200) 20%, rgb(50, 50, 50) 55%);
+  color: white;
+}
+
+.champListHeading {
+  margin: 2rem 0;
+  text-align: center;
+  border-bottom: solid 1px white;
+}
+
+.champList p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.champList p img {
+  margin-right: 1.5rem;
+}
+
+.champAvatar {
+  display: block;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 500px;
+  align-self: center;
+  object-fit: cover;
+  object-position: 50% 0;
+}
+
+/* ---------------------------------------------------------- */
+
+.selectedChamp {
+  font-weight: bold;
+  background: white !important;
+  color: black !important;
+}
+
+.champSelect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+
+.champSelect-outer {
+  display: flex;
+}
+
+.champSelect-outer h2 {
+  width: 2rem;
+  margin: 0 2rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  word-wrap: break-word;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.champSelect-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 40rem;
+}
+
+.champSelect-avatar {
+  border: 1px solid maroon;
+  width: 18rem;
+  height: 26rem;
+  margin: 0 3rem;
+  object-fit: cover;
+  object-position: 50% 0;
+  transition: height 0.75s ease-out 0s;
+}
+
+.champSelect-selector {
+  display: flex;
+  flex-direction: column;
+}
+
+.champSelect-selector button {
+  display: flex;
+  align-items: center;
+  min-width: 15rem;
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid white;
+  border-radius: 500px;
+  background: rgb(35, 25, 25);
+  color: white;
+  cursor: pointer;
+  transition: all 0.75s ease-out 0s;
+}
+
+.champSelect-selector img {
+  --x: 3rem;
+  width: var(--x);
+  height: var(--x);
+  margin-right: 1.2rem;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.playBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  width: 20rem;
+  height: 12rem;
+  padding: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  border-style: none;
+}
+
+.playBtn:hover::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: red;
+  background-repeat: no-repeat;
+  background-size: 50% 50%, 50% 50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  background-image: linear-gradient(firebrick, firebrick),
+    linear-gradient(rgb(35, 25, 25), rgb(35, 25, 25)),
+    linear-gradient(firebrick, firebrick),
+    linear-gradient(rgb(35, 25, 25), rgb(35, 25, 25));
+  animation: rotate 1s linear 0s infinite;
+}
+
+.playBtn:hover::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 1px;
+  top: 1px;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  background: rgb(35, 25, 25);
+}
+
+.playBtn img {
+  max-width: 100%;
+}
+
+.errorMsg {
+  margin: 1rem 0;
+  font-size: 1rem;
+  color: red;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------- */
+
+.gameBoard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 125rem;
+}
+
+.battle {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  padding: 1.5rem;
+  padding-bottom: 0.5rem;
+  margin: 1rem;
+  margin-bottom: 1rem;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 1rem;
+  background: rgb(80, 80, 80);
+  color: white;
+  font-size: 1.4rem;
+}
+
+.battle h6 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.battle h4 {
+  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+}
+
+.battle p {
+  margin-bottom: 1rem;
+}
+
+.battle ul {
+  flex-grow: 1;
+  padding-left: 2rem;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  list-style-type: none;
+}
+
+.gameResult {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 20rem;
+  padding: 1.5rem;
+  margin: 1rem;
+  margin-bottom: 1rem;
+  border-style: solid;
+  border-width: 2px;
+  border-color: gold;
+  border-radius: 1rem;
+  background: rgb(220, 220, 220);
+  font-size: 1.8rem;
+}
+
+.winner {
+  color: lime;
+}
+
+.loser {
+  color: brown;
+}
+
+/* ---------------------------------------------------------- */
