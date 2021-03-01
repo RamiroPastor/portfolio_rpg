@@ -1,5 +1,75 @@
 
 
+const champs = [
+    {
+      "id": 1,
+      "name": "Humano",
+      "avatar": "./public/images/humano.jpg",
+      "icon": "./public/images/faceHuman.png",
+      "damage": [
+        "6d6",
+        "2d10",
+        "1d20"
+      ],
+      "critic": 10,
+      "defense": 10,
+      "vitality": 250
+    },
+    {
+      "id": 2,
+      "name": "Enano",
+      "avatar": "./public/images/enano.jpg",
+      "icon": "./public/images/faceDwarf.jpg",
+      "damage": [
+        "8d4",
+        "3d10"
+      ],
+      "critic": 9,
+      "defense": 15,
+      "vitality": 325
+    },
+    {
+      "id": 3,
+      "name": "Licántropo",
+      "avatar": "./public/images/licantropo.jpg",
+      "icon": "./public/images/faceWerewolf.jpg",
+      "damage": [
+        "4d10",
+        "2d20"
+      ],
+      "critic": 10,
+      "defense": 4,
+      "vitality": 250
+    },
+    {
+      "id": 4,
+      "name": "Orco",
+      "avatar": "./public/images/orco.jpg",
+      "icon": "./public/images/faceOrc.png",
+      "damage": [
+        "3d20"
+      ],
+      "critic": 15,
+      "defense": 12,
+      "vitality": 300
+    },
+    {
+      "id": 5,
+      "name": "Elfo",
+      "avatar": "./public/images/elfo.jpg",
+      "icon": "./public/images/faceElf.png",
+      "damage": [
+        "12d6"
+      ],
+      "critic": 6,
+      "defense": 8,
+      "vitality": 225
+    }
+  ]
+
+
+
+
 // ------------------------------------------------------------------------------------
 
 const champList$$ = document.querySelector("[data-function='fn-champList']");
@@ -10,7 +80,7 @@ const rollingDice$$ = document.querySelector("[data-function='fn-rollingDice']")
 
 
 async function displayChampions() {
-  const champs = await fetch("http://localhost:3000/characters").then(res => res.json());
+  // const champs = await fetch("http://localhost:3000/characters").then(res => res.json());
 
   for (const c of champs) {
     const div$$ = document.createElement("div");
