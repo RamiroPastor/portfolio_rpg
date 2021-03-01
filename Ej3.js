@@ -314,7 +314,7 @@ function displayBattle(round, turn, battleRes) {
 }
 
 
-function displayGameResult(round, vit1, p1, p2) {
+function displayGameResult(round, vit1, vit2, p1, p2) {
 
   const gameResult$$ = document.createElement("div");
   gameResult$$.classList.add("gameResult");
@@ -329,7 +329,7 @@ function displayGameResult(round, vit1, p1, p2) {
     `<h2>Resultado</h2>
      <p class='winner'>Ganador: J${winner} (${winnerRace})</p>
      <p class='loser'>Perdedor: J${loser} (${loserRace})</p>
-     <p>Rondas: ${round}</p>
+     <p>Rondas: ${round - 1}</p>
     `
 
 }
